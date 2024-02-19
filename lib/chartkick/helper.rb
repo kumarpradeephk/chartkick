@@ -144,10 +144,7 @@ module Chartkick
             var head = document.head || document.getElementsByTagName('head')[0];
             var styleTag = document.createElement("style");
             styleTag.setAttribute("type", "text/css");
-            if (head.querySelector("meta[name='csp-nonce']") !== null){
-              var cspNonce = head.querySelector("meta[name='csp-nonce']").getAttribute('content');
-              styleTag.setAttribute("nonce", cspNonce);
-            }
+            styleTag.setAttribute("nonce", "#{nonce}");
             head.appendChild(styleTag);
             styleTag.appendChild(document.createTextNode("#{chart_class_name}"));
 
